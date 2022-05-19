@@ -1,6 +1,5 @@
 package it.prova.gestioneproprietariJPA.dao.proprietario;
 
-import java.util.Date;
 import java.util.List;
 
 import it.prova.gestioneproprietariJPA.dao.IBaseDAO;

@@ -51,12 +51,6 @@ public class AutomobileDAOImpl implements AutomobileDAO {
 	}
 
 	@Override
-	public List<Automobile> findAllByCodiceFiscaleProprietariIniziaCon(String codiceFiscale) throws Exception {
-
-		return null;
-	}
-
-	@Override
 	public List<Automobile> findAllByMarca(String marca) throws Exception {
 
 		return null;
@@ -64,6 +58,12 @@ public class AutomobileDAOImpl implements AutomobileDAO {
 
 	@Override
 	public List<Automobile> findAllByModello(String modello) throws Exception {
+
+		return null;
+	}
+
+	@Override
+	public List<Automobile> findAllByCodiceFiscaleProprietarioIniziaCon(String codiceFiscale) throws Exception {
 
 		return null;
 	}

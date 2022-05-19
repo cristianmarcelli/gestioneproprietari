@@ -11,6 +11,6 @@ public interface AutomobileDAO extends IBaseDAO<Automobile> {
 	
 	public List<Automobile> findAllByModello(String modello) throws Exception;
 
-	public List<Automobile> findAllByCodiceFiscaleProprietariIniziaCon(String codiceFiscale) throws Exception;
+	public List<Automobile> findAllByCodiceFiscaleProprietarioIniziaCon(String codiceFiscale) throws Exception;
 	
 }

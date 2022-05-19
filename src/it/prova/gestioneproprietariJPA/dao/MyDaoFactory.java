@@ -1,26 +1,26 @@
 package it.prova.gestioneproprietariJPA.dao;
 
-import it.prova.municipioAbitanteJPA.dao.abitante.AbitanteDAO;
-import it.prova.municipioAbitanteJPA.dao.abitante.AbitanteDAOImpl;
-import it.prova.municipioAbitanteJPA.dao.municipio.MunicipioDAO;
-import it.prova.municipioAbitanteJPA.dao.municipio.MunicipioDAOImpl;
+import it.prova.gestioneproprietariJPA.dao.automobile.AutomobileDAO;
+import it.prova.gestioneproprietariJPA.dao.automobile.AutomobileDAOImpl;
+import it.prova.gestioneproprietariJPA.dao.proprietario.ProprietarioDAO;
+import it.prova.gestioneproprietariJPA.dao.proprietario.ProprietarioDAOImpl;
 
 public class MyDaoFactory {
 
 	// rendiamo questo factory SINGLETON
-	private static AbitanteDAO abitanteDAOInstance = null;
-	private static MunicipioDAO municipioDAOInstance = null;
+	private static AutomobileDAO automobileDAOInstance = null;
+	private static ProprietarioDAO proprietarioDAOInstance = null;
 
-	public static AbitanteDAO getAbitanteDAOInstance() {
-		if (abitanteDAOInstance == null)
-			abitanteDAOInstance = new AbitanteDAOImpl();
-		return abitanteDAOInstance;
+	public static AutomobileDAO getAbitanteDAOInstance() {
+		if (automobileDAOInstance == null)
+			automobileDAOInstance = new AutomobileDAOImpl();
+		return automobileDAOInstance;
 	}
 
-	public static MunicipioDAO getMunicipioDAOInstance(){
-		if(municipioDAOInstance == null)
-			municipioDAOInstance= new MunicipioDAOImpl();
-		return municipioDAOInstance;
+	public static ProprietarioDAO getMunicipioDAOInstance() {
+		if (proprietarioDAOInstance == null)
+			proprietarioDAOInstance = new ProprietarioDAOImpl();
+		return proprietarioDAOInstance;
 	}
 
 }

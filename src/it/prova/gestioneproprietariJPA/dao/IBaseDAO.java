@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import it.prova.gestioneproprietariJPA.model.Automobile;
-
 public interface IBaseDAO<T> {
 
 	public List<T> list() throws Exception;
@@ -18,8 +16,7 @@ public interface IBaseDAO<T> {
 
 	public void delete(T o) throws Exception;
 
-	//questo mi serve per l'injection
+	// questo mi serve per l'injection
 	public void setEntityManager(EntityManager entityManager);
-
 
 }

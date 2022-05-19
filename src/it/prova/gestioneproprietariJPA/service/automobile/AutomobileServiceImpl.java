@@ -32,13 +32,13 @@ public class AutomobileServiceImpl implements AutomobileService {
 	}
 
 	@Override
-	public List<Automobile> cercaTuttiGliAbitantiConMarca(String marca) throws Exception {
+	public List<Automobile> cercaTutteLeAutomobiliConMarca(String marca) throws Exception {
 
 		return null;
 	}
 
 	@Override
-	public List<Automobile> cercaTuttiGliAbitantiConModello(String modello) throws Exception {
+	public List<Automobile> cercaTutteLeAutomobiliConModello(String modello) throws Exception {
 
 		return null;
 	}

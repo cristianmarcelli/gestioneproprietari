@@ -8,6 +8,9 @@ import it.prova.gestioneproprietariJPA.model.Proprietario;
 
 public interface ProprietarioDAO extends IBaseDAO<Proprietario> {
 
-	public List<Proprietario> contaQuantiProprietariConAutomobileImmatricolataDal(Date dataImmatricolazione)
-			throws Exception;
+	public List<Proprietario> findAllByNome(String nome) throws Exception;
+
+	public List<Proprietario> findAllByCognome(String cognome) throws Exception;
+
+	public List<Proprietario> findAllByTargaAutomobileIniziaCon(String targa) throws Exception;
 }

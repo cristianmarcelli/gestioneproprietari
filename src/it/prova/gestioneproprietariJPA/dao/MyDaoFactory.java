@@ -11,13 +11,13 @@ public class MyDaoFactory {
 	private static AutomobileDAO automobileDAOInstance = null;
 	private static ProprietarioDAO proprietarioDAOInstance = null;
 
-	public static AutomobileDAO getAbitanteDAOInstance() {
+	public static AutomobileDAO getAutomobileDAOInstance() {
 		if (automobileDAOInstance == null)
 			automobileDAOInstance = new AutomobileDAOImpl();
 		return automobileDAOInstance;
 	}
 
-	public static ProprietarioDAO getMunicipioDAOInstance() {
+	public static ProprietarioDAO getProprietarioDAOInstance() {
 		if (proprietarioDAOInstance == null)
 			proprietarioDAOInstance = new ProprietarioDAOImpl();
 		return proprietarioDAOInstance;

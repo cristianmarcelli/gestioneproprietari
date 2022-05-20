@@ -2,15 +2,36 @@ package it.prova.gestioneproprietariJPA.service.automobile;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
+import it.prova.gestioneproprietariJPA.dao.EntityManagerUtil;
 import it.prova.gestioneproprietariJPA.dao.automobile.AutomobileDAO;
 import it.prova.gestioneproprietariJPA.model.Automobile;
 
 public class AutomobileServiceImpl implements AutomobileService {
 
+	private AutomobileDAO automobileDAO;
+
+	@Override
+	public void setAutomobileDAO(AutomobileDAO automobileDAO) {
+		this.automobileDAO = automobileDAO;
+	}
+
 	@Override
 	public List<Automobile> listAllAutomobili() throws Exception {
 
-		return null;
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			automobileDAO.setEntityManager(entityManager);
+
+			return automobileDAO.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
 	}
 
 	@Override
@@ -29,10 +50,6 @@ public class AutomobileServiceImpl implements AutomobileService {
 
 	@Override
 	public void rimuovi(Long idAutomobileInstance) throws Exception {
-	}
-
-	@Override
-	public void setAutomobileDAO(AutomobileDAO automobileDAO) {
 	}
 
 	@Override

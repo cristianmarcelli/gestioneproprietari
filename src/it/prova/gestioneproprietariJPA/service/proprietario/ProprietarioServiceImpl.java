@@ -8,6 +8,13 @@ import it.prova.gestioneproprietariJPA.model.Proprietario;
 
 public class ProprietarioServiceImpl implements ProprietarioService {
 
+	private ProprietarioDAO proprietarioDAO;
+
+	@Override
+	public void setProprietarioDAO(ProprietarioDAO proprietarioDAO) {
+		this.proprietarioDAO = proprietarioDAO;
+	}
+
 	@Override
 	public List<Proprietario> listAllProprietari() throws Exception {
 
@@ -30,10 +37,6 @@ public class ProprietarioServiceImpl implements ProprietarioService {
 
 	@Override
 	public void rimuovi(Long idProprietarioInstance) throws Exception {
-	}
-
-	@Override
-	public void setProprietarioDAO(ProprietarioDAO proprietarioDAO) {
 	}
 
 	@Override

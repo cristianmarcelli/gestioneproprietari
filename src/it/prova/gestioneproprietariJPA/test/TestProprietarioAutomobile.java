@@ -30,9 +30,9 @@ public class TestProprietarioAutomobile {
 //			//STAMPO LA LISTA DELLE AUTOMOBILI PER VEDERE SE è STAT INSERITA CON IL METODO PRECEDENTE
 //			System.out.println(automobileService.listAllAutomobili());
 
-			testRimozioneAutomobile(proprietarioService, automobileService);
-			System.out.println(
-					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
+//			testRimozioneAutomobile(proprietarioService, automobileService);
+//			System.out.println(
+//					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
 
 			
 			
@@ -43,7 +43,10 @@ public class TestProprietarioAutomobile {
 			
 //			testInserisciProprietario(proprietarioService);
 //			System.out.println(proprietarioService.listAllProprietari());
-
+			
+			testRimozioneProprietario(proprietarioService);
+			System.out.println(proprietarioService.listAllProprietari());
+			
 		} catch (Throwable e) {
 			e.printStackTrace();
 		} finally {
@@ -118,6 +121,24 @@ public class TestProprietarioAutomobile {
 			throw new RuntimeException("testInserisciProprietario fallito ");
 
 		System.out.println(".......testInserisciProprietario fine: PASSED.............");
+	}
+	
+	private static void testRimozioneProprietario(ProprietarioService proprietarioService)
+			throws Exception {
+		System.out.println(".......testRimozioneProprietario inizio.............");
+		
+		Date dataNascita = new SimpleDateFormat("dd-MM-yyyy").parse("17-05-1956");
+
+		Proprietario nuovoProprietario = new Proprietario("Andrea", "Corsetti", "ANDCRS", dataNascita);
+
+		proprietarioService.inserisciNuovo(nuovoProprietario);
+
+		Long idProprietarioInserito = nuovoProprietario.getId();
+		proprietarioService.rimuovi(idProprietarioInserito);
+
+		if (proprietarioService.caricaSingoloProprietario(idProprietarioInserito) != null)
+			throw new RuntimeException("testRimozioneProprietario fallito: record non cancellato ");
+		System.out.println(".......testRimozioneProprietario fine: PASSED.............");
 	}
 
 }

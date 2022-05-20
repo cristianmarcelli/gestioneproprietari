@@ -54,7 +54,27 @@ public class AutomobileServiceImpl implements AutomobileService {
 
 	@Override
 	public void aggiorna(Automobile automobileInstance) throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
 
+		try {
+			entityManager.getTransaction().begin();
+
+			automobileDAO.setEntityManager(entityManager);
+
+			automobileDAO.update(automobileInstance);
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
+	@Override
+	public void inserisciNuovo(Automobile automobileInstance) throws Exception {
 		EntityManager entityManager = EntityManagerUtil.getEntityManager();
 
 		try {
@@ -72,10 +92,6 @@ public class AutomobileServiceImpl implements AutomobileService {
 		} finally {
 			EntityManagerUtil.closeEntityManager(entityManager);
 		}
-	}
-
-	@Override
-	public void inserisciNuovo(Automobile automobileInstance) throws Exception {
 	}
 
 	@Override

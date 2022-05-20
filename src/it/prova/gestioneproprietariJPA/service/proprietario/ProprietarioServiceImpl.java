@@ -1,5 +1,6 @@
 package it.prova.gestioneproprietariJPA.service.proprietario;
 
+import java.util.Date;
 import java.util.List;
 
 import it.prova.gestioneproprietariJPA.dao.proprietario.ProprietarioDAO;
@@ -32,25 +33,13 @@ public class ProprietarioServiceImpl implements ProprietarioService {
 	}
 
 	@Override
-	public List<Proprietario> cercaTuttiIProprietariConNome(String nome) throws Exception {
-
-		return null;
-	}
-
-	@Override
-	public List<Proprietario> cercaTuttiIProprietariConCognome(String cognome) throws Exception {
-
-		return null;
-	}
-
-	@Override
-	public List<Proprietario> cercaTuttiIProprietariConTargaAutomobileIniziaCon(String targa) throws Exception {
-
-		return null;
-	}
-
-	@Override
 	public void setProprietarioDAO(ProprietarioDAO proprietarioDAO) {
+	}
+
+	@Override
+	public int contaQuantiProprietariConAutomobileImmatricolataDal(Date dataImmatricolazione) throws Exception {
+
+		return 0;
 	}
 
 }

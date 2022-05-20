@@ -32,15 +32,7 @@ public class AutomobileServiceImpl implements AutomobileService {
 	}
 
 	@Override
-	public List<Automobile> cercaTutteLeAutomobiliConMarca(String marca) throws Exception {
-
-		return null;
-	}
-
-	@Override
-	public List<Automobile> cercaTutteLeAutomobiliConModello(String modello) throws Exception {
-
-		return null;
+	public void setAutomobileDAO(AutomobileDAO automobileDAO) {
 	}
 
 	@Override
@@ -51,7 +43,9 @@ public class AutomobileServiceImpl implements AutomobileService {
 	}
 
 	@Override
-	public void setAutomobileDAO(AutomobileDAO automobileDAO) {
+	public List<Automobile> cercaErroriProprietariAutomobiliMinorenni() throws Exception {
+
+		return null;
 	}
 
 }

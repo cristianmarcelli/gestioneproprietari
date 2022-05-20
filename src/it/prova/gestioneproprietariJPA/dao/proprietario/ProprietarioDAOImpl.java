@@ -1,5 +1,6 @@
 package it.prova.gestioneproprietariJPA.dao.proprietario;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -51,21 +52,9 @@ public class ProprietarioDAOImpl implements ProprietarioDAO {
 	}
 
 	@Override
-	public List<Proprietario> findAllByNome(String nome) throws Exception {
+	public int countProprietariConAutomobileImmatricolataDal(Date dataImmatricolazione) throws Exception {
 
-		return null;
-	}
-
-	@Override
-	public List<Proprietario> findAllByCognome(String cognome) throws Exception {
-
-		return null;
-	}
-
-	@Override
-	public List<Proprietario> findAllByTargaAutomobileIniziaCon(String targa) throws Exception {
-
-		return null;
+		return 0;
 	}
 
 }

@@ -17,12 +17,10 @@ public interface AutomobileService {
 
 	public void rimuovi(Long idAutomobileInstance) throws Exception;
 
-	public List<Automobile> cercaTutteLeAutomobiliConMarca(String marca) throws Exception;
-
-	public List<Automobile> cercaTutteLeAutomobiliConModello(String modello) throws Exception;
-
 	public List<Automobile> cercaTutteLeAutomobiliTramiteCodiceFiscaleProprietario(String codiceFiscale)
 			throws Exception;
+
+	public List<Automobile> cercaErroriProprietariAutomobiliMinorenni() throws Exception;
 
 	// per injection
 	public void setAutomobileDAO(AutomobileDAO automobileDAO);

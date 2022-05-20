@@ -1,5 +1,6 @@
 package it.prova.gestioneproprietariJPA.service.proprietario;
 
+import java.util.Date;
 import java.util.List;
 
 import it.prova.gestioneproprietariJPA.dao.proprietario.ProprietarioDAO;
@@ -17,11 +18,7 @@ public interface ProprietarioService {
 
 	public void rimuovi(Long idProprietarioInstance) throws Exception;
 
-	public List<Proprietario> cercaTuttiIProprietariConNome(String nome) throws Exception;
-
-	public List<Proprietario> cercaTuttiIProprietariConCognome(String cognome) throws Exception;
-
-	public List<Proprietario> cercaTuttiIProprietariConTargaAutomobileIniziaCon(String targa) throws Exception;
+	public int contaQuantiProprietariConAutomobileImmatricolataDal(Date dataImmatricolazione) throws Exception;
 
 	// per injection
 	public void setProprietarioDAO(ProprietarioDAO proprietarioDAO);

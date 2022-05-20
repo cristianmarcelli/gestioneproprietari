@@ -54,6 +54,24 @@ public class AutomobileServiceImpl implements AutomobileService {
 
 	@Override
 	public void aggiorna(Automobile automobileInstance) throws Exception {
+
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			entityManager.getTransaction().begin();
+
+			automobileDAO.setEntityManager(entityManager);
+
+			automobileDAO.insert(automobileInstance);
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public interface AutomobileService {
 
 	public void rimuovi(Long idAutomobileInstance) throws Exception;
 
-	public List<Automobile> cercaTutteLeAutomobiliTramiteCodiceFiscaleProprietario(String codiceFiscale)
+	public List<Automobile> cercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario(String inizialeCodiceFiscale)
 			throws Exception;
 
 	public List<Automobile> cercaErroriProprietariAutomobiliMinorenni() throws Exception;

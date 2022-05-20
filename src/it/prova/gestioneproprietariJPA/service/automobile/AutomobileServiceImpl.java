@@ -36,7 +36,7 @@ public class AutomobileServiceImpl implements AutomobileService {
 	}
 
 	@Override
-	public List<Automobile> cercaTutteLeAutomobiliTramiteCodiceFiscaleProprietario(String codiceFiscale)
+	public List<Automobile> cercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario(String inizialeCodiceFiscale)
 			throws Exception {
 
 		return null;

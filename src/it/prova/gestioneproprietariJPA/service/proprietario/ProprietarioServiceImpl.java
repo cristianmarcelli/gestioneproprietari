@@ -55,6 +55,23 @@ public class ProprietarioServiceImpl implements ProprietarioService {
 
 	@Override
 	public void aggiorna(Proprietario proprietarioInstance) throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			entityManager.getTransaction().begin();
+
+			proprietarioDAO.setEntityManager(entityManager);
+
+			proprietarioDAO.update(proprietarioInstance);
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
 	}
 
 	@Override

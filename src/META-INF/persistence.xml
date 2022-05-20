@@ -7,13 +7,13 @@
 	<persistence-unit name="proprietario_automobile_unit"
 		transaction-type="RESOURCE_LOCAL">
 		<class>it.prova.proprietarioAutomobileJPA.model.Automobile</class>
-		<class>it.prova.proprietarioAutomobileJPA.model.Municipio</class>
+		<class>it.prova.proprietarioAutomobileJPA.model.Proprietario</class>
 		<properties>
 			<!-- setup con MySql -->
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/gestioneproprietarireverse?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true" />
+				value="jdbc:mysql://localhost:3306/gestioneproprietari?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password"
 				value="Solvingteam123!?" />

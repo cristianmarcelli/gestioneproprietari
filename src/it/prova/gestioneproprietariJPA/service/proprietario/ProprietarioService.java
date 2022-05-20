@@ -18,7 +18,7 @@ public interface ProprietarioService {
 
 	public void rimuovi(Long idProprietarioInstance) throws Exception;
 
-	public int contaQuantiProprietariConAutomobileImmatricolataDal(Date dataImmatricolazione) throws Exception;
+	public Long contaQuantiProprietariConAutomobileImmatricolataDal(int annoImmatricolazione) throws Exception;
 
 	// per injection
 	public void setProprietarioDAO(ProprietarioDAO proprietarioDAO);

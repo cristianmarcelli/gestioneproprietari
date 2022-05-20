@@ -7,6 +7,6 @@ import it.prova.gestioneproprietariJPA.model.Proprietario;
 
 public interface ProprietarioDAO extends IBaseDAO<Proprietario> {
 
-	public int countProprietariConAutomobileImmatricolataDal(Date dataImmatricolazione) throws Exception;
+	public Long countProprietariConAutomobileImmatricolataDal(int annoImmatricolazione) throws Exception;
 
 }

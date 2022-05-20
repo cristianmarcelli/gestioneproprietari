@@ -33,6 +33,9 @@ public class TestProprietarioAutomobile {
 //			testRimozioneAutomobile(proprietarioService, automobileService);
 //			System.out.println(
 //					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
+			
+			testAggiornaAutomobile(proprietarioService, automobileService);
+			System.out.println(automobileService.listAllAutomobili());
 
 			
 			
@@ -44,8 +47,8 @@ public class TestProprietarioAutomobile {
 //			testInserisciProprietario(proprietarioService);
 //			System.out.println(proprietarioService.listAllProprietari());
 			
-			testRimozioneProprietario(proprietarioService);
-			System.out.println(proprietarioService.listAllProprietari());
+//			testRimozioneProprietario(proprietarioService);
+//			System.out.println(proprietarioService.listAllProprietari());
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -97,6 +100,19 @@ public class TestProprietarioAutomobile {
 		if (automobileService.caricaSingolaAutomobile(idAAutomobileInserito) != null)
 			throw new RuntimeException("testRimozioneAutomobile fallito: record non cancellato ");
 		System.out.println(".......testRimozioneAutomobile fine: PASSED.............");
+	}
+	
+	private static void testAggiornaAutomobile(ProprietarioService proprietarioService, AutomobileService automobileService) throws Exception {
+		System.out.println(".......testAggiornaAutomobile inizio.............");
+		
+		List<Automobile> listaAutomobiliiPresenti = automobileService.listAllAutomobili();
+		
+		Automobile automobileDaAggiornare = listaAutomobiliiPresenti.get(0);
+		automobileDaAggiornare.setTarga("JJ999JJ");
+		
+		automobileService.aggiorna(automobileDaAggiornare);
+		
+		System.out.println(".......testAggiornaAutomobile fine.............");
 	}
 
 	

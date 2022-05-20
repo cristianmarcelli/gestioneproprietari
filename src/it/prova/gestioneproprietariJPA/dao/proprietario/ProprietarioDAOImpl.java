@@ -31,6 +31,7 @@ public class ProprietarioDAOImpl implements ProprietarioDAO {
 		if (proprietarioInstance == null) {
 			throw new Exception("Problema valore in input");
 		}
+		proprietarioInstance = entityManager.merge(proprietarioInstance);
 	}
 
 	@Override

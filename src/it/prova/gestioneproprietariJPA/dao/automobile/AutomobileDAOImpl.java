@@ -3,6 +3,7 @@ package it.prova.gestioneproprietariJPA.dao.automobile;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import it.prova.gestioneproprietariJPA.model.Automobile;
 
@@ -53,8 +54,9 @@ public class AutomobileDAOImpl implements AutomobileDAO {
 
 	@Override
 	public List<Automobile> findAllByCodiceFiscaleProprietarioIniziaCon(String inizialeCodiceFiscale) throws Exception {
-
-		return null;
+		TypedQuery<Automobile> query = entityManager
+				.createQuery("select distinct a from Automobile a join a.proprietario p where codiceFiscale like ?1", Automobile.class);
+		return query.setParameter(1, inizialeCodiceFiscale + "%").getResultList();
 	}
 
 	@Override

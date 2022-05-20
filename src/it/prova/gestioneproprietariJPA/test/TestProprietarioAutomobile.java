@@ -37,6 +37,8 @@ public class TestProprietarioAutomobile {
 //			testAggiornaAutomobile(proprietarioService, automobileService);
 //			System.out.println(automobileService.listAllAutomobili());
 
+			testCercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario(proprietarioService, automobileService);
+
 //			//TEST METODI PROPRIETARIO
 //			System.out.println("In tabella Proprietario ci sono " + proprietarioService.listAllProprietari().size()
 //					+ " elementi.");
@@ -46,8 +48,8 @@ public class TestProprietarioAutomobile {
 
 //			testRimozioneProprietario(proprietarioService);
 //			System.out.println(proprietarioService.listAllProprietari());
-			
-			testContaQuantiProprietariConAutomobileImmatricolataDal(proprietarioService, automobileService);
+
+//			testContaQuantiProprietariConAutomobileImmatricolataDal(proprietarioService, automobileService);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -115,6 +117,17 @@ public class TestProprietarioAutomobile {
 		System.out.println(".......testAggiornaAutomobile fine.............");
 	}
 
+	private static void testCercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario(
+			ProprietarioService proprietarioService, AutomobileService automobileService) throws Exception {
+		System.out.println(
+				".......testCercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario inizio.............");
+
+		System.out.println(automobileService.cercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario("GRN"));
+
+		System.out.println(
+				".......testCercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario inizio.............");
+	}
+
 	// TEST METODI PROPRIETARIO
 	private static void testInserisciProprietario(ProprietarioService proprietarioService) throws Exception {
 		System.out.println(".......testInserisciProprietario inizio.............");
@@ -155,7 +168,7 @@ public class TestProprietarioAutomobile {
 		System.out.println(".......testContaQuantiProprietariConAutomobileImmatricolataDal inizio.............");
 
 		System.out.println(proprietarioService.contaQuantiProprietariConAutomobileImmatricolataDal(1980));
-		
+
 		System.out.println(".......testContaQuantiProprietariConAutomobileImmatricolataDal fine.............");
 	}
 

@@ -118,8 +118,20 @@ public class AutomobileServiceImpl implements AutomobileService {
 	@Override
 	public List<Automobile> cercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario(String inizialeCodiceFiscale)
 			throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
 
-		return null;
+		try {
+
+			automobileDAO.setEntityManager(entityManager);
+
+			return automobileDAO.findAllByCodiceFiscaleProprietarioIniziaCon(inizialeCodiceFiscale);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
 	}
 
 	@Override

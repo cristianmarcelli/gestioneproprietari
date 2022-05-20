@@ -20,36 +20,42 @@ public class TestProprietarioAutomobile {
 		try {
 
 			// TEST METODI AUTOMOBILE
-//			System.out.println(
-//					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
-//
-//			testInserisciAutomobile(proprietarioService, automobileService);
-//			System.out.println(
-//					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
-//			
-//			//STAMPO LA LISTA DELLE AUTOMOBILI PER VEDERE SE è STAT INSERITA CON IL METODO PRECEDENTE
-//			System.out.println(automobileService.listAllAutomobili());
+			System.out.println(
+					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
 
-//			testRimozioneAutomobile(proprietarioService, automobileService);
-//			System.out.println(
-//					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
+			testInserisciAutomobile(proprietarioService, automobileService);
+			System.out.println(
+					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
 
-//			testAggiornaAutomobile(proprietarioService, automobileService);
-//			System.out.println(automobileService.listAllAutomobili());
+			// STAMPO LA LISTA DELLE AUTOMOBILI PER VEDERE SE è STAT INSERITA CON IL METODO
+			// PRECEDENTE
+			System.out.println(automobileService.listAllAutomobili());
+
+			testRimozioneAutomobile(proprietarioService, automobileService);
+			System.out.println(
+					"In tabella Automobile ci sono " + automobileService.listAllAutomobili().size() + " elementi.");
+
+			testAggiornaAutomobile(proprietarioService, automobileService);
+			System.out.println(automobileService.listAllAutomobili());
 
 			testCercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario(proprietarioService, automobileService);
 
-//			//TEST METODI PROPRIETARIO
-//			System.out.println("In tabella Proprietario ci sono " + proprietarioService.listAllProprietari().size()
-//					+ " elementi.");
+			testCercaErroriProprietariAutomobiliMinorenni(proprietarioService, automobileService);
 
-//			testInserisciProprietario(proprietarioService);
-//			System.out.println(proprietarioService.listAllProprietari());
+			// TEST METODI PROPRIETARIO
+			System.out.println("In tabella Proprietario ci sono " + proprietarioService.listAllProprietari().size()
+					+ " elementi.");
 
-//			testRimozioneProprietario(proprietarioService);
-//			System.out.println(proprietarioService.listAllProprietari());
+			testInserisciProprietario(proprietarioService);
+			System.out.println(proprietarioService.listAllProprietari());
 
-//			testContaQuantiProprietariConAutomobileImmatricolataDal(proprietarioService, automobileService);
+			testRimozioneProprietario(proprietarioService);
+			System.out.println(proprietarioService.listAllProprietari());
+
+			testAggiornaProprietario(proprietarioService);
+			System.out.println(proprietarioService.listAllProprietari());
+
+			testContaQuantiProprietariConAutomobileImmatricolataDal(proprietarioService, automobileService);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -124,8 +130,18 @@ public class TestProprietarioAutomobile {
 
 		System.out.println(automobileService.cercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario("GRN"));
 
-		System.out.println(
-				".......testCercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario inizio.............");
+		System.out
+				.println(".......testCercaTutteLeAutomobiliTramiteInizialeCodiceFiscaleProprietario fine.............");
+	}
+
+	private static void testCercaErroriProprietariAutomobiliMinorenni(ProprietarioService proprietarioService,
+			AutomobileService automobileService) throws Exception {
+		System.out.println(".......testCercaErroriProprietariAutomobiliMinorenni inizio.............");
+
+		System.out.println(automobileService.cercaErroriProprietariAutomobiliMinorenni());
+
+		System.out.println(".......testCercaErroriProprietariAutomobiliMinorenni fine.............");
+
 	}
 
 	// TEST METODI PROPRIETARIO
@@ -161,6 +177,19 @@ public class TestProprietarioAutomobile {
 		if (proprietarioService.caricaSingoloProprietario(idProprietarioInserito) != null)
 			throw new RuntimeException("testRimozioneProprietario fallito: record non cancellato ");
 		System.out.println(".......testRimozioneProprietario fine: PASSED.............");
+	}
+
+	private static void testAggiornaProprietario(ProprietarioService proprietarioService) throws Exception {
+		System.out.println(".......testAggiornaProprietario inizio.............");
+
+		List<Proprietario> listaProprietariPresenti = proprietarioService.listAllProprietari();
+
+		Proprietario proprietarioDaAggiornare = listaProprietariPresenti.get(0);
+		proprietarioDaAggiornare.setNome("Alberto");
+
+		proprietarioService.aggiorna(proprietarioDaAggiornare);
+
+		System.out.println(".......testAggiornaProprietario fine.............");
 	}
 
 	private static void testContaQuantiProprietariConAutomobileImmatricolataDal(ProprietarioService proprietarioService,

@@ -54,15 +54,18 @@ public class AutomobileDAOImpl implements AutomobileDAO {
 
 	@Override
 	public List<Automobile> findAllByCodiceFiscaleProprietarioIniziaCon(String inizialeCodiceFiscale) throws Exception {
-		TypedQuery<Automobile> query = entityManager
-				.createQuery("select distinct a from Automobile a join a.proprietario p where codiceFiscale like ?1", Automobile.class);
+		TypedQuery<Automobile> query = entityManager.createQuery(
+				"select distinct a from Automobile a join a.proprietario p where codiceFiscale like ?1",
+				Automobile.class);
 		return query.setParameter(1, inizialeCodiceFiscale + "%").getResultList();
 	}
 
 	@Override
 	public List<Automobile> findAllErroriProprietariAutomobiliMinorenni() throws Exception {
-
-		return null;
+		TypedQuery<Automobile> query = entityManager.createQuery(
+				"select distinct a from Automobile a join a.proprietario p where p.dataNascita > '2004-01-01'",
+				Automobile.class);
+		return query.getResultList();
 	}
 
 }

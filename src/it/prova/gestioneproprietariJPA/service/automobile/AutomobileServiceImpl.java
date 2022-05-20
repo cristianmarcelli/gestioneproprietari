@@ -137,7 +137,20 @@ public class AutomobileServiceImpl implements AutomobileService {
 	@Override
 	public List<Automobile> cercaErroriProprietariAutomobiliMinorenni() throws Exception {
 
-		return null;
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+
+			automobileDAO.setEntityManager(entityManager);
+
+			return automobileDAO.findAllErroriProprietariAutomobiliMinorenni();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
 	}
 
 }
